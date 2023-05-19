@@ -44,6 +44,9 @@
         <div class="result-btn">
             <button id="replay" type="button" class="btn btn-primary" onclick="replay()">다시하기</button>
             <button id="copy" type="button" class="btn btn-primary mt-4" role="alert" onclick="copy()">링크 복사</button>
+            <a id="kakaotalk-sharing-btn" href="javascript:shareMessage()">
+                <button type="button" class="btn btn-primary mt-4" style="width:100%">공유하기</button>
+            </a>
         </div>
     </div>
 
@@ -55,5 +58,36 @@
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.7/dist/umd/popper.min.js" integrity="sha384-zYPOMqeu1DAVkHiLqWBUTcbYfZ8osu1Nd6Z89ify25QV9guujx43ITvfi12/QExE" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.min.js" integrity="sha384-Y4oOpwW3duJdCWv5ly8SCFYWqFDsfob/3GkgExXKV4idmbt98QcxXYs9UoXAB7BZ" crossorigin="anonymous"></script>
     <script type="text/javascript" src="testJs.js"></script>
+
+    <script src="https://t1.kakaocdn.net/kakao_js_sdk/2.1.0/kakao.min.js"
+  integrity="sha384-dpu02ieKC6NUeKFoGMOKz6102CLEWi9+5RQjWSV0ikYSFFd8M3Wp2reIcquJOemx" crossorigin="anonymous"></script>
+    <script>
+    Kakao.init('454239202b1fef2ea2d6da4092494a6d'); // 사용하려는 앱의 JavaScript 키 입력
+    </script>
+
+    <script>
+    function shareMessage() {
+        Kakao.Share.sendDefault({
+        objectType: 'feed',
+        content: {
+            title:'플레이리스트 추천 받을래?',
+            description: '#라벨스티커 #플레이리스트 #DJ #추천',
+            imageUrl:
+            'https://ibb.co/m6v3v9s',
+            link: {
+            webUrl: 'https://deft-cucurucho-242c1e.netlify.app/',
+            },
+        },
+        buttons: [
+            {
+            title: '플레이리스트 담으러 가기',
+            link: {
+                webUrl: 'https://deft-cucurucho-242c1e.netlify.app/',
+            },
+            },
+        ],
+        });
+    }
+    </script>
 </body>
 </html>
